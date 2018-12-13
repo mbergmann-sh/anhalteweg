@@ -1,0 +1,19 @@
+RESOURCES += qdarkstyle/style.qrc
+_____________________________________
+#include <QString>
+#include <QStyle>
+#include <QFile>
+#include <QTextStream>
+______________________________________
+QFile f(":qdarkstyle/style.qss");
+    if (!f.exists())
+    {
+        printf("Nicht erfolgreich: Stylesheet, Datei nicht gefunden\n");
+    }
+    else
+    {
+        f.open(QFile::ReadOnly | QFile::Text);
+        QTextStream ts(&f);
+        a.setStyleSheet(ts.readAll());
+    }
+		
